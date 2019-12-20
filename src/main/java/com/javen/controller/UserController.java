@@ -56,7 +56,7 @@ public class UserController {
     @RequestMapping(value="/showUser",method=RequestMethod.GET)
     public String toIndex(HttpServletRequest request,Model model){
         int userId = Integer.parseInt(request.getParameter("id"));
-        System.out.println("userId:"+userId);
+        System.out.println("userId111:"+userId);
         User user = this.userService.getUserById(userId);
         log.debug(user.toString());
         model.addAttribute("user", user);
@@ -69,7 +69,7 @@ public class UserController {
         int userId = Integer.parseInt(id);
         System.out.println("userId:"+userId);
         User user = this.userService.getUserById(userId);
-        log.debug(user.toString());
+        log.info(user.toString());
         model.addAttribute("user", user);
         return "showUser";
     }
