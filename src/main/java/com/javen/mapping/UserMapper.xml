@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.javen.dao.UserMapper">
+    <resultMap id="userMap" type="com.javen.model.User">
+        <id property="id" column="id" javaType="INTEGER"/>
+        <result property="userName" column="user_name" javaType="VARCHAR"/>
+        <result property="password" column="pass_word" javaType="VARCHAR"/>
+        <result property="age" column="age" javaType="INTEGER"/>
+    </resultMap>
+
+    <sql id="allColumns">
+		id,user_name,pass_word,age
+	</sql>
+
+    <select id="selectByPrimaryKey" parameterType="int" statementType="CALLABLE" resultMap="userMap">
+        select <include refid="allColumns"/> from user_t where id = #{id}
+    </select>
+</mapper>
