@@ -18,34 +18,34 @@
         <property name="location" value="classpath:jdbc.properties" />
     </bean>
 
-    <!--<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
           destroy-method="close">
         <property name="driverClassName" value="${driver}" />
         <property name="url" value="${url}" />
         <property name="username" value="${username}" />
         <property name="password" value="${password}" />
-        &lt;!&ndash; 初始化连接大小 &ndash;&gt;
+        <!-- 初始化连接大小 -->
         <property name="initialSize" value="${initialSize}"></property>
-        &lt;!&ndash; 连接池最大数量 &ndash;&gt;
+        <!-- 连接池最大数量 -->
         <property name="maxActive" value="${maxActive}"></property>
-        &lt;!&ndash; 连接池最大空闲 &ndash;&gt;
+        <!-- 连接池最大空闲 -->
         <property name="maxIdle" value="${maxIdle}"></property>
-        &lt;!&ndash; 连接池最小空闲 &ndash;&gt;
+        <!-- 连接池最小空闲 -->
         <property name="minIdle" value="${minIdle}"></property>
-        &lt;!&ndash; 获取连接最大等待时间 &ndash;&gt;
+        <!-- 获取连接最大等待时间 -->
         <property name="maxWait" value="${maxWait}"></property>
-    </bean>-->
+    </bean>
 
-    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+    <!--<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
           destroy-method="close" lazy-init="true">
         <property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
         <property name="url" value="jdbc:sqlserver://localhost:1433;databaseName=chisdb_xxgyy;user=sa" />
-        <!-- <property name="url" value="jdbc:sqlserver://localhost:1433;databaseName=chisdb_dev;user=sa" /> -->
+        &lt;!&ndash; <property name="url" value="jdbc:sqlserver://localhost:1433;databaseName=chisdb_dev;user=sa" /> &ndash;&gt;
         <property name="username" value="sa" />
         <property name="password" value="wangbin123" />
         <property name="maxActive" value="50" />
         <property name="maxIdle" value="5" />
-    </bean>
+    </bean>-->
 
     <!-- spring和MyBatis完美整合，不需要mybatis的配置映射文件 -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">

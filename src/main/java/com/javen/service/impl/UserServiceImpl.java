@@ -17,4 +17,9 @@ public class UserServiceImpl implements IUserService {
         return this.userMapper.selectByPrimaryKey(userId);
     }
 
+    @Override
+    public User getUserByName(String username) {
+        return this.userMapper.selectByName(username);
+    }
+
 }

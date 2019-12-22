@@ -32,6 +32,27 @@ public class UserController {
     @Resource
     private IUserService userService;
 
+    @RequestMapping(value="/login",method = RequestMethod.POST)
+    public String login(HttpServletRequest request,Model model){
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        log.info(username + "--" + password);
+
+        User curUser = userService.getUserByName(username);
+        if(curUser == null){
+            model.addAttribute("errMsg1","用户不存在");
+            return "login";
+        }else{
+            if(!password.equals(curUser.getPassword())){
+                model.addAttribute("errMsg2","密码不正确");
+                return "login";
+            }
+        }
+
+        model.addAttribute("username",username);
+        return "welcome";
+    }
+
     // /user/test?id=1
     @RequestMapping(value="/test",method=RequestMethod.GET)
     public String test(HttpServletRequest request,Model model){
